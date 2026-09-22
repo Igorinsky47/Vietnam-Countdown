@@ -8,18 +8,32 @@
 <link rel="apple-touch-icon" href="icon.png">
 <title>Vietnam Countdown</title>
 <style>
-:root{--gold:#ffc94e;--cream:#fff8e9;--line:rgba(255,255,255,.24);--glass:rgba(2,45,42,.78);--green:#21c96b}
-*{box-sizing:border-box} html,body{margin:0;min-height:100%;background:#052f2e;color:white;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
-body:before{content:"";position:fixed;inset:0;background:
-linear-gradient(180deg,rgba(1,30,31,.05),rgba(1,31,29,.52) 44%,rgba(1,31,29,.86)),
-url("background.jpg") center top/cover no-repeat;z-index:-2}
-body:after{content:"";position:fixed;inset:0;background:radial-gradient(circle at 78% 13%,rgba(255,198,70,.18),transparent 24%);z-index:-1;pointer-events:none}
+:root{--gold:#ffc94e;--cream:#fff8e9;--line:rgba(255,255,255,.24);--glass:rgba(2,45,42,.76);--green:#21c96b}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#052f2e;color:white;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+body{position:relative;isolation:isolate}
+body:before{
+  content:"";position:fixed;z-index:-2;
+  top:0;right:0;bottom:0;left:0;
+  background-image:
+    linear-gradient(180deg,rgba(0,29,30,.16) 0%,rgba(0,35,33,.28) 32%,rgba(0,37,34,.58) 70%,rgba(0,31,29,.72) 100%),
+    url("background.jpg");
+  background-repeat:no-repeat,no-repeat;
+  background-position:center top,center top;
+  background-size:cover,cover;
+}
+body:after{
+  content:"";position:fixed;z-index:-1;inset:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 82% 12%,rgba(255,190,65,.18),transparent 26%),
+    linear-gradient(90deg,rgba(0,34,31,.12),transparent 35%,transparent 68%,rgba(0,28,27,.12));
+}
 .wrap{width:min(94vw,760px);margin:auto;padding:calc(env(safe-area-inset-top) + 34px) 0 calc(env(safe-area-inset-bottom) + 40px)}
-.hero{text-align:center;padding:18px 12px 22px;text-shadow:0 3px 20px rgba(0,0,0,.45)}
+.hero{text-align:center;padding:18px 12px 22px;text-shadow:0 3px 20px rgba(0,0,0,.58)}
 .flag{font-size:48px}.eyebrow{font-weight:800;letter-spacing:.22em;font-size:13px;margin-top:8px}
 h1{font-size:clamp(58px,17vw,100px);font-style:italic;letter-spacing:-.07em;line-height:.88;margin:18px 0 12px;font-weight:1000}
 .sub{font-size:12px;letter-spacing:.22em;font-weight:700}
-.card{background:linear-gradient(145deg,rgba(1,49,45,.88),rgba(1,42,39,.72));border:1px solid rgba(255,214,105,.42);box-shadow:0 12px 35px rgba(0,0,0,.24);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);border-radius:28px;margin:14px 0;padding:25px}
+.card{background:linear-gradient(145deg,rgba(1,49,45,.84),rgba(1,38,36,.70));border:1px solid rgba(255,214,105,.46);box-shadow:0 12px 35px rgba(0,0,0,.26);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:28px;margin:14px 0;padding:25px}
 .until{text-align:center;font-size:17px;margin-bottom:22px}
 .count{display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
 .num{font-size:clamp(43px,12vw,70px);font-weight:900;line-height:1}.lab{font-size:11px;letter-spacing:.15em;margin-top:10px;color:#e6e9e4}
@@ -39,8 +53,14 @@ h1{font-size:clamp(58px,17vw,100px);font-style:italic;letter-spacing:-.07em;line
 .ms.done .circle{background:var(--green);border-color:#8dffb6}.ms.active .circle{background:var(--gold);border-color:var(--gold);color:#173632}
 .ms strong{display:block;font-size:11px;margin-top:9px}.ms span{display:block;font-size:9px;color:#d4ddda;margin-top:5px;line-height:1.25}
 .nav{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}.nav div{padding:18px 8px;text-align:center}.nav b{display:block;font-size:10px;margin-top:6px}.nav i{font-style:normal;font-size:28px}
-.footer{text-align:center;font:italic 25px Georgia,serif;margin:32px 0 8px;color:#fff8e9}
-@media(max-width:520px){.wrap{width:92vw}.card{padding:20px 17px;border-radius:24px}.quoteText{font-size:22px}.milestones{gap:1px}.circle{width:34px;height:34px}.ms strong{font-size:9px}.ms span{font-size:7.5px}.nav div{padding:14px 3px}.until{font-size:15px}}
+.footer{text-align:center;font:italic 25px Georgia,serif;margin:32px 0 8px;color:#fff8e9;text-shadow:0 2px 12px rgba(0,0,0,.65)}
+@media(max-width:520px){
+  body:before{
+    background-size:auto 100svh,auto 100svh;
+    background-position:center top,center top;
+  }
+  .wrap{width:92vw}.card{padding:20px 17px;border-radius:24px}.quoteText{font-size:22px}.milestones{gap:1px}.circle{width:34px;height:34px}.ms strong{font-size:9px}.ms span{font-size:7.5px}.nav div{padding:14px 3px}.until{font-size:15px}
+}
 </style>
 </head>
 <body>
@@ -84,10 +104,10 @@ h1{font-size:clamp(58px,17vw,100px);font-style:italic;letter-spacing:-.07em;line
 </section>
 <div class="footer">Same People · Different Latitude ♡</div>
 </main>
+
 <script>
 const target = new Date('2026-11-18T14:45:00+01:00');
-// Progress begins 60 days before departure; before then it stays at 0%.
-const journeyStart = new Date(target.getTime() - 60*24*60*60*1000);
+const journeyStart = new Date(target.getTime() - 60*86400000);
 
 const quotes=[
 "Zwei Freunde. Ein Abenteuer. Viel zu wenig Schlaf. ✈️",
@@ -114,51 +134,66 @@ const milestoneData=[
 
 function dailyQuote(){
  const now=new Date();
- const key=Math.floor(Date.UTC(now.getFullYear(),now.getMonth(),now.getDate())/86400000);
- document.getElementById('quote').textContent='“'+quotes[((key%quotes.length)+quotes.length)%quotes.length]+'”';
+ const dayKey=`${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`;
+ let hash=0;
+ for(const c of dayKey) hash=((hash<<5)-hash)+c.charCodeAt(0);
+ document.getElementById('quote').textContent='“'+quotes[Math.abs(hash)%quotes.length]+'”';
 }
 
 function renderMilestones(daysLeft){
- const root=document.getElementById('milestones'); root.innerHTML='';
- // Reached only when remaining whole/partial time is <= threshold.
- // The next upcoming milestone is highlighted yellow; passed milestones are green.
+ const root=document.getElementById('milestones');
+ root.innerHTML='';
  const reached=milestoneData.map(x=>daysLeft<=x.days);
+
+ // "Active" = most recently crossed threshold, not the final reached item.
  let active=-1;
- for(let i=milestoneData.length-1;i>=0;i--){
-   if(reached[i]){ active=i; break; }
+ for(let i=0;i<reached.length;i++){
+   if(reached[i]) active=i;
+   else break;
  }
+ // Since thresholds descend, the first true threshold is the latest crossed.
+ active=reached.findIndex(Boolean);
+
  milestoneData.forEach((x,i)=>{
-   const el=document.createElement('div'); el.className='ms';
+   const el=document.createElement('div');
+   el.className='ms';
    if(reached[i]) el.classList.add(i===active?'active':'done');
    const icon=reached[i] ? (i===active?'✈':'✓') : '';
-   const status=reached[i]?x.text:'Noch offen';
-   el.innerHTML=`<div class="circle">${icon}</div><strong>${x.label}</strong><span>${status}</span>`;
+   el.innerHTML=`<div class="circle">${icon}</div><strong>${x.label}</strong><span>${reached[i]?x.text:'Noch offen'}</span>`;
    root.appendChild(el);
  });
 }
 
 function tick(){
- const now=new Date(), diff=target-now;
+ const now=new Date();
+ const diff=target.getTime()-now.getTime();
+
  if(diff<=0){
-   document.getElementById('d').textContent='0';document.getElementById('h').textContent='0';
-   document.getElementById('m').textContent='0';document.getElementById('s').textContent='0';
+   d.textContent=h.textContent=m.textContent=s.textContent='0';
    document.querySelector('.until').innerHTML='✈︎ &nbsp; TODAY WE FLY · VIETNAM! 🇻🇳';
-   document.getElementById('fill').style.width='100%';document.getElementById('pct').textContent='100%';
-   document.getElementById('plane').style.left='94%';renderMilestones(0);return;
+   fill.style.width='100%'; pct.textContent='100%'; plane.style.left='94%';
+   renderMilestones(0);
+   return;
  }
+
  const days=Math.floor(diff/86400000);
  const hours=Math.floor(diff/3600000)%24;
  const mins=Math.floor(diff/60000)%60;
  const secs=Math.floor(diff/1000)%60;
- d.textContent=days;h.textContent=hours;m.textContent=mins;s.textContent=secs;
+ d.textContent=days; h.textContent=hours; m.textContent=mins; s.textContent=secs;
 
- const total=target-journeyStart;
- const progress=Math.max(0,Math.min(1,(now-journeyStart)/total));
+ const progress=Math.max(0,Math.min(1,(now.getTime()-journeyStart.getTime())/(target.getTime()-journeyStart.getTime())));
  const percent=Math.round(progress*100);
- fill.style.width=percent+'%'; pct.textContent=percent+'%';
+ fill.style.width=percent+'%';
+ pct.textContent=percent+'%';
  plane.style.left=(4+progress*90)+'%';
+
  renderMilestones(diff/86400000);
 }
-dailyQuote();tick();setInterval(tick,1000);
+
+dailyQuote();
+tick();
+setInterval(tick,1000);
 </script>
-</body></html>
+</body>
+</html>
