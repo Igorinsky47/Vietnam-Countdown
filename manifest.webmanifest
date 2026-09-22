@@ -1,15 +1,15 @@
 {
   "name": "Vietnam Countdown",
-  "short_name": "Vietnam 🇻🇳",
+  "short_name": "Vietnam",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#073638",
-  "theme_color": "#073638",
+  "background_color": "#052f2e",
+  "theme_color": "#073c3a",
   "icons": [
     {
-      "src": "icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]

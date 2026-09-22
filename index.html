@@ -3,129 +3,162 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#062f32">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Vietnam 🇻🇳">
+<meta name="theme-color" content="#073c3a">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icon.svg">
-<title>Vietnam Countdown 🇻🇳</title>
+<link rel="apple-touch-icon" href="icon.png">
+<title>Vietnam Countdown</title>
 <style>
-:root{--gold:#ffd05a;--cream:#fff9e9;--muted:#c8d9d6;--glass:rgba(3,42,42,.78);--line:rgba(255,255,255,.22)}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:white;background:#073638}
-body{min-height:100vh;background:
-radial-gradient(circle at 88% 9%,rgba(255,174,65,.34),transparent 22%),
-radial-gradient(circle at 12% 78%,rgba(27,116,77,.35),transparent 26%),
-linear-gradient(180deg,#0b5960 0%,#0a4143 35%,#062c2e 100%);overflow-x:hidden}
-body:before,body:after{content:"";position:fixed;z-index:0;pointer-events:none;filter:blur(1px)}
-body:before{width:280px;height:420px;left:-130px;top:80px;background:radial-gradient(ellipse,rgba(5,39,33,.9),transparent 68%);transform:rotate(-15deg)}
-body:after{width:360px;height:360px;right:-180px;bottom:40px;background:radial-gradient(circle,rgba(14,78,49,.8),transparent 65%)}
-.app{position:relative;z-index:1;max-width:760px;margin:auto;padding:calc(28px + env(safe-area-inset-top)) 18px calc(34px + env(safe-area-inset-bottom))}
-.hero{text-align:center;padding:8px 0 20px}.flag{font-size:46px;filter:drop-shadow(0 7px 12px #0005)}
-.kicker{letter-spacing:.26em;font-size:12px;font-weight:700;margin-top:8px;color:#e7f1ef}
-h1{font-size:clamp(54px,17vw,96px);line-height:.88;margin:12px 0 10px;font-weight:950;letter-spacing:-.055em;font-style:italic;text-shadow:0 7px 24px #0019}
-.sub{font-size:11px;letter-spacing:.18em;font-weight:700;color:#d9e7e3}
-.card{background:linear-gradient(145deg,rgba(2,48,48,.88),rgba(10,48,42,.72));border:1px solid rgba(255,222,126,.38);box-shadow:0 18px 45px #0018,inset 0 1px #fff1;border-radius:27px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.count{padding:22px 14px;margin-bottom:14px}.until{text-align:center;font-size:15px;margin-bottom:18px;color:#f5f7ee}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr)}.time{text-align:center;border-right:1px solid var(--line)}.time:last-child{border:0}
-.num{font-weight:900;font-size:clamp(36px,12vw,65px);line-height:1}.lab{font-size:10px;letter-spacing:.13em;margin-top:9px;color:#d5e0de}
-.vibe{display:grid;grid-template-columns:1fr auto;align-items:center;padding:17px 18px;margin-bottom:14px}.quote{font-family:Georgia,serif;font-style:italic;font-size:20px;line-height:1.35}.daily{font-size:9px;letter-spacing:.16em;color:#cbd8d5;margin-top:5px}.refresh{font-size:24px;padding-left:15px;text-align:center}.refresh small{display:block;font-size:7px;letter-spacing:.08em;color:#cad8d4;margin-top:4px}
-.route{padding:19px 17px;margin-bottom:14px}.head{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:800;letter-spacing:.13em;margin-bottom:17px}.dest{font-size:13px;letter-spacing:0;font-weight:700}
-.route-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:11px}.city{font-weight:800;font-size:14px}.code{font-size:10px;color:#b9ceca;letter-spacing:.14em;margin-top:3px}
-.flight{position:relative;height:52px}.dash{position:absolute;left:5%;right:5%;top:26px;border-top:2px dashed #d7e3dfaa}.plane{position:absolute;top:7px;left:var(--progress);transform:translateX(-50%) rotate(8deg);font-size:34px;filter:drop-shadow(0 4px 4px #0008);transition:left 1s ease}
-.dot{position:absolute;width:10px;height:10px;border:2px solid white;border-radius:50%;top:22px;background:#0a4947}.dot.a{left:2%}.dot.b{right:2%}
-.progress-wrap{margin-top:16px;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}.bar{height:8px;border-radius:9px;background:#ffffff2c;overflow:hidden}.fill{height:100%;width:var(--progress);background:linear-gradient(90deg,#ffd25c,#ffe99b);border-radius:9px}.pct{font-weight:900;font-size:14px}
-.caption{text-align:center;color:#d6e2df;font-size:11px;margin-top:10px}
-.miles{padding:19px 13px;margin-bottom:14px;overflow:hidden}.mile-row{display:flex;gap:8px;overflow-x:auto;padding:5px 2px 8px;scrollbar-width:none}.mile-row::-webkit-scrollbar{display:none}.mile{min-width:82px;text-align:center;position:relative}.circle{width:38px;height:38px;margin:auto;border:2px solid #d9e4df;border-radius:50%;display:grid;place-items:center;font-size:17px;background:#173f3d}.mile.done .circle{background:#16ad59;border-color:#9affbd}.mile.next .circle{background:var(--gold);border-color:var(--gold);color:#163532}.mile b{display:block;font-size:12px;margin-top:8px}.mile small{display:block;font-size:9px;color:#c9d7d3;margin-top:3px;line-height:1.2}.mile.next b{color:var(--gold)}
-.footer{text-align:center;font-family:Georgia,serif;font-style:italic;font-size:18px;margin:22px 0 4px;color:#fff4dc}
-@media(max-width:390px){.app{padding-left:12px;padding-right:12px}.quote{font-size:18px}.count{padding-left:8px;padding-right:8px}.until{font-size:13px}.city{font-size:12px}.plane{font-size:30px}}
+:root{--gold:#ffc94e;--cream:#fff8e9;--line:rgba(255,255,255,.24);--glass:rgba(2,45,42,.78);--green:#21c96b}
+*{box-sizing:border-box} html,body{margin:0;min-height:100%;background:#052f2e;color:white;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+body:before{content:"";position:fixed;inset:0;background:
+linear-gradient(180deg,rgba(1,30,31,.05),rgba(1,31,29,.52) 44%,rgba(1,31,29,.86)),
+url("background.jpg") center top/cover no-repeat;z-index:-2}
+body:after{content:"";position:fixed;inset:0;background:radial-gradient(circle at 78% 13%,rgba(255,198,70,.18),transparent 24%);z-index:-1;pointer-events:none}
+.wrap{width:min(94vw,760px);margin:auto;padding:calc(env(safe-area-inset-top) + 34px) 0 calc(env(safe-area-inset-bottom) + 40px)}
+.hero{text-align:center;padding:18px 12px 22px;text-shadow:0 3px 20px rgba(0,0,0,.45)}
+.flag{font-size:48px}.eyebrow{font-weight:800;letter-spacing:.22em;font-size:13px;margin-top:8px}
+h1{font-size:clamp(58px,17vw,100px);font-style:italic;letter-spacing:-.07em;line-height:.88;margin:18px 0 12px;font-weight:1000}
+.sub{font-size:12px;letter-spacing:.22em;font-weight:700}
+.card{background:linear-gradient(145deg,rgba(1,49,45,.88),rgba(1,42,39,.72));border:1px solid rgba(255,214,105,.42);box-shadow:0 12px 35px rgba(0,0,0,.24);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);border-radius:28px;margin:14px 0;padding:25px}
+.until{text-align:center;font-size:17px;margin-bottom:22px}
+.count{display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
+.num{font-size:clamp(43px,12vw,70px);font-weight:900;line-height:1}.lab{font-size:11px;letter-spacing:.15em;margin-top:10px;color:#e6e9e4}
+.count>div+div{border-left:1px solid var(--line)}
+.quote{display:grid;grid-template-columns:1fr auto;gap:15px;align-items:center}
+.quoteText{font:italic 27px Georgia,serif;color:var(--cream);line-height:1.35}.daily{font-size:10px;letter-spacing:.22em;margin-top:10px;color:#d3ddd7}
+.refresh{text-align:center;font-size:30px}.refresh small{display:block;font-size:9px;letter-spacing:.12em;font-family:inherit;font-style:normal;margin-top:6px}
+.title{font-weight:900;letter-spacing:.12em;font-size:14px;margin-bottom:22px}
+.routeTop{display:flex;justify-content:space-between;align-items:flex-end;font-weight:800}.airport{font-size:11px;letter-spacing:.15em;color:#c7d4d0;font-weight:500;margin-top:4px}
+.routeLine{position:relative;height:70px;margin:4px 8px 0}.dash{position:absolute;left:7%;right:7%;top:35px;border-top:3px dashed rgba(255,255,255,.68)}
+.dot{position:absolute;top:29px;width:15px;height:15px;border:3px solid white;border-radius:50%;background:#07423e}.dot.a{left:4%}.dot.b{right:4%}
+.plane{position:absolute;top:8px;transform:translateX(-50%);font-size:38px;filter:drop-shadow(0 4px 5px rgba(0,0,0,.35));transition:left 1s ease}
+.bar{height:12px;border-radius:99px;background:rgba(255,255,255,.22);overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#ffe077,#f6b936);border-radius:99px;transition:width 1s}
+.pct{text-align:right;font-weight:900;margin-top:-18px;transform:translateY(24px)}.routeNote{text-align:center;margin-top:26px;font-size:13px}
+.milestones{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;position:relative}.milestones:before{content:"";position:absolute;left:7%;right:7%;top:19px;height:2px;background:rgba(255,255,255,.38)}
+.ms{text-align:center;position:relative;z-index:1}.circle{width:39px;height:39px;margin:auto;border:2px solid white;border-radius:50%;background:#0a4945;display:grid;place-items:center;font-weight:900}
+.ms.done .circle{background:var(--green);border-color:#8dffb6}.ms.active .circle{background:var(--gold);border-color:var(--gold);color:#173632}
+.ms strong{display:block;font-size:11px;margin-top:9px}.ms span{display:block;font-size:9px;color:#d4ddda;margin-top:5px;line-height:1.25}
+.nav{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}.nav div{padding:18px 8px;text-align:center}.nav b{display:block;font-size:10px;margin-top:6px}.nav i{font-style:normal;font-size:28px}
+.footer{text-align:center;font:italic 25px Georgia,serif;margin:32px 0 8px;color:#fff8e9}
+@media(max-width:520px){.wrap{width:92vw}.card{padding:20px 17px;border-radius:24px}.quoteText{font-size:22px}.milestones{gap:1px}.circle{width:34px;height:34px}.ms strong{font-size:9px}.ms span{font-size:7.5px}.nav div{padding:14px 3px}.until{font-size:15px}}
 </style>
 </head>
 <body>
-<main class="app">
-<section class="hero"><div class="flag">🇻🇳</div><div class="kicker">THE BOYS ARE GOING TO</div><h1>VIETNAM</h1><div class="sub">BEST FRIENDS · BIG CITY · ISLAND LIFE · 2026</div></section>
-
-<section class="card count">
-<div class="until">✈︎ &nbsp;Noch bis zum Abflug · 18. November 2026 · 14:45</div>
-<div class="grid4">
-<div class="time"><div class="num" id="d">--</div><div class="lab">TAGE</div></div>
-<div class="time"><div class="num" id="h">--</div><div class="lab">STUNDEN</div></div>
-<div class="time"><div class="num" id="m">--</div><div class="lab">MINUTEN</div></div>
-<div class="time"><div class="num" id="s">--</div><div class="lab">SEKUNDEN</div></div>
-</div></section>
-
-<section class="card vibe"><div><div class="quote" id="quote"></div><div class="daily">— DAILY VIETNAM VIBES —</div></div><div class="refresh">↻<small>NEUER SPRUCH<br>MORGEN</small></div></section>
-
-<section class="card route">
-<div class="head"><span>🗺️ &nbsp;UNSERE REISE</span><span class="dest">🏝️ Phú Quốc</span></div>
-<div class="route-row">
-<div><div class="city">🇩🇪 Düsseldorf</div><div class="code">DUS</div></div>
-<div class="flight"><div class="dash"></div><i class="dot a"></i><i class="dot b"></i><div class="plane" id="plane">✈️</div></div>
-<div style="text-align:right"><div class="city">🇻🇳 Saigon</div><div class="code">SGN</div></div>
-</div>
-<div class="progress-wrap"><div class="bar"><div class="fill" id="fill"></div></div><div class="pct" id="pct">0%</div></div>
-<div class="caption" id="caption">Jeder Tag bringt uns näher ans Paradies. 🇻🇳❤️</div>
+<main class="wrap">
+<section class="hero">
+<div class="flag">🇻🇳</div><div class="eyebrow">THE BOYS ARE GOING TO</div>
+<h1>VIETNAM</h1><div class="sub">BEST FRIENDS · BIG CITY · ISLAND LIFE · 2026</div>
 </section>
 
-<section class="card miles">
-<div class="head"><span>🚩 &nbsp;ROAD TO VIETNAM</span><span>MEILENSTEINE ›</span></div>
-<div class="mile-row" id="milestones"></div>
+<section class="card">
+<div class="until">✈︎ &nbsp; Noch bis zum Abflug · 18. November 2026 · 14:45</div>
+<div class="count">
+<div><div class="num" id="d">–</div><div class="lab">TAGE</div></div>
+<div><div class="num" id="h">–</div><div class="lab">STUNDEN</div></div>
+<div><div class="num" id="m">–</div><div class="lab">MINUTEN</div></div>
+<div><div class="num" id="s">–</div><div class="lab">SEKUNDEN</div></div>
+</div>
+</section>
+
+<section class="card quote">
+<div><div class="quoteText" id="quote"></div><div class="daily">— DAILY VIETNAM VIBES —</div></div>
+<div class="refresh">↻<small>NEUER SPRUCH<br>MORGEN</small></div>
+</section>
+
+<section class="card">
+<div class="title">🗺️ &nbsp; UNSERE REISE <span style="float:right">🏝️ Phú Quốc</span></div>
+<div class="routeTop"><div>🇩🇪 Düsseldorf<div class="airport">DUS</div></div><div style="text-align:right">🇻🇳 Saigon<div class="airport">SGN</div></div></div>
+<div class="routeLine"><div class="dash"></div><div class="dot a"></div><div class="dot b"></div><div class="plane" id="plane">✈️</div></div>
+<div class="bar"><div class="fill" id="fill"></div></div><div class="pct" id="pct">0%</div>
+<div class="routeNote">Jeder Tag bringt uns näher ans Paradies. 🇻🇳❤️</div>
+</section>
+
+<section class="card">
+<div class="title">🚩 &nbsp; ROAD TO VIETNAM <span style="float:right">MEILENSTEINE ›</span></div>
+<div class="milestones" id="milestones"></div>
+</section>
+
+<section class="nav">
+<div class="card"><i>🌴</i><b>PLANUNG</b></div><div class="card"><i>🗺️</i><b>REISEZIELE</b></div>
+<div class="card"><i>📷</i><b>FOTOS</b></div><div class="card"><i>♡</i><b>GOOD VIBES</b></div>
 </section>
 <div class="footer">Same People · Different Latitude ♡</div>
 </main>
 <script>
-const target=new Date("2026-11-18T14:45:00+01:00");
-const journeyStart=new Date("2026-09-22T00:00:00+02:00");
+const target = new Date('2026-11-18T14:45:00+01:00');
+// Progress begins 60 days before departure; before then it stays at 0%.
+const journeyStart = new Date(target.getTime() - 60*24*60*60*1000);
+
 const quotes=[
 "Zwei Freunde. Ein Abenteuer. Viel zu wenig Schlaf. ✈️",
-"Saigon is calling. 📞🇻🇳",
-"Bald ist das größte Problem des Tages: Strand oder Pool? 🏝️",
-"Work mode: temporary. Vietnam: inevitable. 🇻🇳",
-"Zwei Freunde. Zwei Koffer. Fragwürdige Entscheidungen. ✈️",
-"Good food. Good vibes. Vietnam. ❤️",
-"Pho real: Wir fliegen bald nach Vietnam. 🍜",
-"Noch ein Tag weniger bis Streetfood, Skyline und Strand. 🌴",
-"Der Alltag hat ein Ablaufdatum. Vietnam wartet. 🔥",
-"Pass bereit. Koffer bald bereit. Wir sowieso. 😎",
-"Saigon bei Nacht. Phú Quốc am Tag. Genau unser Ding. 🌆",
-"Vorfreude ist auch eine Reise. 🇻🇳",
-"Jeder Montag bringt uns Vietnam näher. Das zählt. 😏",
-"Schlaf können wir nach Vietnam wieder nachholen. ✈️",
-"Die Entfernung wird kleiner. Die Vorfreude größer. ❤️",
-"Ein bisschen Chaos, sehr viel Vietnam. 🌴",
-"Countdown läuft. Abenteuer lädt… ⏳",
-"Das Leben ist zu kurz für langweilige Urlaube. 🇻🇳",
 "Bald tauschen wir Alltag gegen Asia-Vibes. 🔥",
-"Next stop: unvergesslich. ✈️🇻🇳",
-"Wir sammeln keine Dinge. Wir sammeln Geschichten. ❤️",
-"Pho, Bánh mì, Rooftops, Beach. Repeat. 🍜",
-"Wenn der Countdown einstellig wird, eskaliert die Vorfreude. 😎",
-"Vietnam: pending… Friendship: confirmed. ✅",
-"Same people. Different latitude. 🌴"
+"Streetfood, Skyline, Strand – wir kommen. 🇻🇳",
+"Same people. Different latitude. 🌴",
+"Saigon bei Nacht. Phú Quốc bei Sonnenuntergang. ❤️",
+"Der beste Teil der Reise? Die Vorfreude darauf. ✈️",
+"Good food. Good vibes. Vietnam. 🇻🇳",
+"Nur noch ein bisschen Alltag bis zum Abenteuer. 🔥",
+"Pass, Koffer, bester Freund – mehr braucht’s nicht. 🌏",
+"Von Düsseldorf direkt ins nächste Kapitel. ✈️"
 ];
-const milestones=[
-{days:50,label:"50 Tage",sub:"Geschafft! 🎉"},
-{days:30,label:"30 Tage",sub:"Geschafft! 🎉"},
-{days:14,label:"14 Tage",sub:"Jetzt wird’s ernst! ✈️"},
-{days:7,label:"7 Tage",sub:"Endspurt! 💪"},
-{days:3,label:"3 Tage",sub:"Koffer packen! 🧳"},
-{days:1,label:"Morgen",sub:"Morgen! 🔥"},
-{days:0,label:"Abflug",sub:"VIETNAM! ❤️"}
+
+const milestoneData=[
+ {days:50,label:"50 Tage",text:"Geschafft! 🎉"},
+ {days:30,label:"30 Tage",text:"Geschafft! 🎉"},
+ {days:14,label:"14 Tage",text:"Bald geht’s richtig los! ✈️"},
+ {days:7,label:"7 Tage",text:"Endspurt! 💪"},
+ {days:3,label:"3 Tage",text:"Koffer packen! 🧳"},
+ {days:1,label:"1 Tag",text:"Morgen! 🔥"},
+ {days:0,label:"Abflug",text:"Vietnam! ❤️"}
 ];
-function dayKey(){let n=new Date();return Math.floor(Date.UTC(n.getFullYear(),n.getMonth(),n.getDate())/86400000)}
-document.getElementById("quote").textContent="“"+quotes[Math.abs(dayKey())%quotes.length]+"”";
-function update(){
- const now=new Date(), diff=Math.max(0,target-now), total=Math.max(1,target-journeyStart);
- const d=Math.floor(diff/86400000), h=Math.floor(diff/3600000)%24, m=Math.floor(diff/60000)%60, s=Math.floor(diff/1000)%60;
- document.getElementById("d").textContent=d;document.getElementById("h").textContent=String(h).padStart(2,"0");document.getElementById("m").textContent=String(m).padStart(2,"0");document.getElementById("s").textContent=String(s).padStart(2,"0");
- let p=Math.min(100,Math.max(0,(now-journeyStart)/total*100));document.documentElement.style.setProperty("--progress",p+"%");document.getElementById("pct").textContent=Math.round(p)+"%";
- const box=document.getElementById("milestones");box.innerHTML="";
- let nextIndex=milestones.findIndex(x=>d>x.days);
- if(nextIndex<0 && diff>0) nextIndex=milestones.length-1;
- milestones.forEach((x,i)=>{let done=d<=x.days, next=i===nextIndex&&!done; if(x.days===0)done=diff===0;
- let el=document.createElement("div");el.className="mile "+(done?"done ":"")+(next?"next":"");el.innerHTML=`<div class="circle">${done?"✓":next?"✈":"○"}</div><b>${x.label}</b><small>${done?(x.days===0?"Angekommen! ❤️":"Geschafft! 🎉"):x.sub}</small>`;box.appendChild(el)});
- if(diff===0){document.getElementById("caption").textContent="WIR SIND UNTERWEGS NACH VIETNAM! 🇻🇳🔥";document.getElementById("quote").textContent="“Heute ist kein Countdown mehr. Heute geht’s los! ✈️🇻🇳”";}
+
+function dailyQuote(){
+ const now=new Date();
+ const key=Math.floor(Date.UTC(now.getFullYear(),now.getMonth(),now.getDate())/86400000);
+ document.getElementById('quote').textContent='“'+quotes[((key%quotes.length)+quotes.length)%quotes.length]+'”';
 }
-update();setInterval(update,1000);
+
+function renderMilestones(daysLeft){
+ const root=document.getElementById('milestones'); root.innerHTML='';
+ // Reached only when remaining whole/partial time is <= threshold.
+ // The next upcoming milestone is highlighted yellow; passed milestones are green.
+ const reached=milestoneData.map(x=>daysLeft<=x.days);
+ let active=-1;
+ for(let i=milestoneData.length-1;i>=0;i--){
+   if(reached[i]){ active=i; break; }
+ }
+ milestoneData.forEach((x,i)=>{
+   const el=document.createElement('div'); el.className='ms';
+   if(reached[i]) el.classList.add(i===active?'active':'done');
+   const icon=reached[i] ? (i===active?'✈':'✓') : '';
+   const status=reached[i]?x.text:'Noch offen';
+   el.innerHTML=`<div class="circle">${icon}</div><strong>${x.label}</strong><span>${status}</span>`;
+   root.appendChild(el);
+ });
+}
+
+function tick(){
+ const now=new Date(), diff=target-now;
+ if(diff<=0){
+   document.getElementById('d').textContent='0';document.getElementById('h').textContent='0';
+   document.getElementById('m').textContent='0';document.getElementById('s').textContent='0';
+   document.querySelector('.until').innerHTML='✈︎ &nbsp; TODAY WE FLY · VIETNAM! 🇻🇳';
+   document.getElementById('fill').style.width='100%';document.getElementById('pct').textContent='100%';
+   document.getElementById('plane').style.left='94%';renderMilestones(0);return;
+ }
+ const days=Math.floor(diff/86400000);
+ const hours=Math.floor(diff/3600000)%24;
+ const mins=Math.floor(diff/60000)%60;
+ const secs=Math.floor(diff/1000)%60;
+ d.textContent=days;h.textContent=hours;m.textContent=mins;s.textContent=secs;
+
+ const total=target-journeyStart;
+ const progress=Math.max(0,Math.min(1,(now-journeyStart)/total));
+ const percent=Math.round(progress*100);
+ fill.style.width=percent+'%'; pct.textContent=percent+'%';
+ plane.style.left=(4+progress*90)+'%';
+ renderMilestones(diff/86400000);
+}
+dailyQuote();tick();setInterval(tick,1000);
 </script>
 </body></html>
