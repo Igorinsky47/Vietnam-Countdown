@@ -1,1 +1,16 @@
-{"name":"Vietnam Countdown","short_name":"Vietnam 🇻🇳","start_url":"./","display":"standalone","background_color":"#071c24","theme_color":"#071c24","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
+{
+  "name": "Vietnam Countdown",
+  "short_name": "Vietnam 🇻🇳",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#073638",
+  "theme_color": "#073638",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
